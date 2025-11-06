@@ -12,7 +12,6 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: var(--darker-bg);
   color: var(--text-light);
-  overflow-x: hidden;
 }
 
 h1, h2 {
@@ -20,34 +19,42 @@ h1, h2 {
 }
 
 .custom-navbar {
-  background: rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.navbar-nav .nav-link {
-  color: var(--text-light) !important;
+.custom-navbar .nav-link {
+  color: var(--text-light);
   margin: 0 1rem;
   font-size: 0.95rem;
-  transition: color 0.3s;
   font-weight: 500;
+  transition: color 0.3s;
 }
 
-.navbar-nav .nav-link:hover {
-  color: var(--accent-gold) !important;
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link:focus,
+.custom-navbar .nav-link.active {
+  color: var(--accent-gold);
 }
 
-.hero-section {
-  height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('images/hero-bg.jpg') center/cover;
+.hero-section, .spots-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/hero-bg.jpg') center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.hero-section {
+  height: 100vh;
+}
+
+.spots-hero {
+  height: 60vh;
+}
+
 .hero-title {
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 600;
   line-height: 1.2;
   text-align: center;
@@ -55,13 +62,50 @@ h1, h2 {
   padding: 0 2rem;
 }
 
-.section-number {
-  font-size: 12rem;
+.spots-hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 700;
-  color: rgba(255,255,255,0.03);
+  line-height: 1.2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.content-section {
+  position: relative;
+  padding: 8rem 0;
+}
+
+.section-number {
+  font-size: clamp(4rem, 12vw, 12rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.03);
   position: absolute;
   line-height: 1;
-  z-index: 1;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3vw, 3rem);
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.section-text {
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.image-card {
+  height: clamp(250px, 40vw, 500px);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+}
+
+.image-card:hover {
+  transform: scale(1.02);
 }
 
 .image-card img {
@@ -70,22 +114,84 @@ h1, h2 {
   object-fit: cover;
 }
 
+.page-intro {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.page-intro h2 {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.page-intro p {
+  color: var(--text-muted);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  padding: 0 1rem;
+}
+
+.spot-card {
+  background-color: var(--dark-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.spot-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.spot-image {
+  width: 100%;
+  height: clamp(250px, 30vw, 400px);
+  object-fit: cover;
+}
+
+.spot-content {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.spot-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.spot-description {
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
 .footer {
-  background-color: var(--darker-bg);
   padding: 4rem 0 2rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
 .footer-credit {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
-  color: white;
   margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
-  .hero-title { font-size: 2.5rem; }
-  .section-title { font-size: 2rem; }
-  .section-number { font-size: 6rem; }
+  .content-section {
+    padding: 4rem 0;
+  }
+  
+  .spot-content {
+    padding: 1.5rem;
+  }
 }
