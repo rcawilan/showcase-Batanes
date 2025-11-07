@@ -55,7 +55,8 @@ h2 {
   height: 60vh;
 }
 
-.hero-title {
+.hero-title,
+.spots-hero h1 {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 600;
   line-height: 1.2;
@@ -65,12 +66,7 @@ h2 {
 }
 
 .spots-hero h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 700;
-  line-height: 1.2;
-  text-align: center;
-  max-width: 800px;
-  padding: 0 2rem;
 }
 
 .content-section {
@@ -177,12 +173,6 @@ h2 {
   font-size: 0.95rem;
 }
 
-.footer {
-  padding: 4rem 0 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-}
-
 .footer-credit {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
@@ -194,11 +184,11 @@ h2 {
     padding: 4rem 0;
   }
 
-  .section-number {
-    font-size: clamp(2rem, 8vw, 6rem);
-  }
-
   .spot-content {
     padding: 1.5rem;
+  }
+
+  .section-number {
+    font-size: clamp(3rem, 10vw, 8rem);
   }
 }
